@@ -30,8 +30,8 @@ export class DashboardComponent implements OnInit {
       this.pods = pods;
 
       // activate at least one pod by default
-      // this.defaultPod = this.pods[0];
-      // this.defaultPod.isActive = true;
+      this.defaultPod = this.pods[0];
+      this.defaultPod.isActive = true;
     });
   }
 
