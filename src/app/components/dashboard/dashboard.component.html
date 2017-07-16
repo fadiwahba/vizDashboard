@@ -1,111 +1,96 @@
 <div class="row">
+
   <div class="col-sm-2">
     <button type="button" class="btn btn-primary" (click)="addPod($event)">Add Process</button>
   </div>
+
   <div class="col-sm-10">
-    <!--<div class="row">-->
 
-    <div *ngIf="pods.length > 0">
-      <div *ngFor="let pod of pods; let i = index;">
-        <div *ngIf="pod.isActive == true">
-
-          <!--<div class="col-sm-6">-->
-          <div class="pod">
-            <div class="pod-header flex-container">
-              <div class="pod-header-title">
-                <span class="pod-title">Process</span> <span class="pod-value">{{pod.process}}</span>
-              </div>
-              <div class="close-icon">
-                <button (click)="removePod(i)" type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              </div>
-            </div>
-            <!--/pod-header-->
-
-            <div class="pod-cpu flex-container">
-              <div class="pod-cpu-left">
-                <h3 class="pod-title">CPU %</h3>
-                <div class="pod-value">{{pod.cpu}}</div>
-              </div>
-              <div class="pod-cpu-right">
-                <img src="../../../assets/images/pod-progress.png" alt="progress">
-              </div>
-            </div>
-            <!--/pod-cpu-->
-
-            <div class="pod-confg-wrapper flex-container">
-              <div class="pod-confg pod-confg-status has-border">
-                <h3 class="pod-title">Status</h3>
-                <div class="pod-value">{{pod.status}}</div>
-              </div>
-
-              <div class="pod-confg pod-confg-instances has-border">
-                <h3 class="pod-title">Instances</h3>
-                <div class="pod-value">{{pod.instances}}</div>
-              </div>
-
-              <div class="pod-confg pod-confg-memory has-border">
-                <h3 class="pod-title">Memory MB</h3>
-                <div class="pod-value">6</div>
-              </div>
-
-              <div class="pod-confg pod-confg-uptime has-border">
-                <h3 class="pod-title">Up Time</h3>
-                <div class="pod-value">{{pod.upTime}}</div>
-              </div>
-
-              <div class="pod-confg pod-confg-restarts">
-                <h3 class="pod-title">Restarts</h3>
-                <div class="pod-value">{{pod.restarts.totalCount}}</div>
-                <div *ngIf="pod.restarts.history.length > 0"  class="dropdown">
-                  <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    <span class="glyphicon glyphicon-triangle-bottom"></span>
-                  </a>
-                  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-                    <li *ngFor="let item of pod.restarts.history;">{{item}}</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <!--/pod-confg-->
-          </div>
-          <!--/pod-->
-
-          <!--</div>-->
-          <!--col-sm-6-->
-
+    <div *ngIf="showErrorMessage" class="row">
+      <div class="col-sm-12">
+        <div class="alert alert-danger" role="alert">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span class="sr-only">Error:</span> <span>{{errorMessage}}</span>
         </div>
       </div>
     </div>
 
-    <!--</div>-->
+    <div class="row">
+      <div class="col-sm-12">
+
+        <div *ngIf="pods.length > 0" class="pod-repeater flex-container">
+          <div *ngFor="let pod of pods; let i = index;" class="pod-{{i}} pod-wrapper">
+            <div *ngIf="pod.isActive == true">
+                  <div class="pod">
+                    <div class="pod-header flex-container">
+                      <div class="pod-header-title">
+                        <span class="pod-title">Process</span> <span class="pod-value">{{pod.process}}</span>
+                      </div>
+                      <div class="close-icon">
+                        <button (click)="removePod(i)" type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      </div>
+                    </div>
+                    <!--/pod-header-->
+
+                    <div class="pod-cpu flex-container">
+                      <div class="pod-cpu-left">
+                        <h3 class="pod-title">CPU %</h3>
+                        <div class="pod-value">{{pod.cpu}}</div>
+                      </div>
+                      <div class="pod-cpu-right">
+                        <img src="../../../assets/images/pod-progress.png" alt="progress">
+                      </div>
+                    </div>
+                    <!--/pod-cpu-->
+
+                    <div class="pod-confg-wrapper flex-container">
+                      <div class="pod-confg pod-confg-status has-border">
+                        <h3 class="pod-title">Status</h3>
+                        <div class="pod-value">{{pod.status}}</div>
+                      </div>
+
+                      <div class="pod-confg pod-confg-instances has-border">
+                        <h3 class="pod-title">Instances</h3>
+                        <div class="pod-value">{{pod.instances}}</div>
+                      </div>
+
+                      <div class="pod-confg pod-confg-memory has-border">
+                        <h3 class="pod-title">Memory MB</h3>
+                        <div class="pod-value">{{pod.memory}}</div>
+                      </div>
+
+                      <div class="pod-confg pod-confg-uptime has-border">
+                        <h3 class="pod-title">Up Time</h3>
+                        <div class="pod-value">{{pod.upTime}}</div>
+                      </div>
+
+                      <div class="pod-confg pod-confg-restarts">
+                        <h3 class="pod-title">Restarts</h3>
+                        <div class="pod-value">{{pod.restarts.totalCount}}</div>
+                        <div *ngIf="pod.restarts.history.length > 0" class="dropdown">
+                          <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <span class="glyphicon glyphicon-triangle-bottom"></span>
+                          </a>
+                          <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                            <li *ngFor="let item of pod.restarts.history;">{{item}}</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <!--/pod-confg-->
+                  </div>
+                  <!--/pod-->
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!--col-sm-6-->
+
+    </div>
     <!--/row-->
 
   </div>
   <!--/col-sm-10-->
 </div>
 <!--/row-->
-
-<!--<div *ngIf="pods.length > 0">
-  <div *ngFor="let pod of pods; let i = index;">
-    <div *ngIf="pod.isActive == true">
-
-      <button (click)="removePod(i)">X</button>
-      <div><strong>Process: </strong><span>{{pod.process}}</span></div>
-      <div><strong>CPU: </strong><span>{{pod.cpu}}</span></div>
-      <div><strong>Status: </strong><span>{{pod.status}}</span></div>
-      <div><strong>Instances: </strong><span>{{pod.instances}}</span></div>
-      <div><strong>Up Time: </strong><span>{{pod.upTime}}</span></div>
-      <div><strong>Restarts: </strong><span>{{pod.restarts.totalCount}}</span>
-        <div *ngIf="pod.restarts.history.length > 0">
-          <ul>
-            <li *ngFor="let item of pod.restarts.history;">
-              <span>{{item}}</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>-->
-
-<h2 *ngIf="showWarningMessage">{{warningMessage}}</h2>

@@ -17,7 +17,7 @@
     "cpu": 29,
     "status": "on",
     "instances": 4,
-    "memory": 6,
+    "memory": 2,
     "upTime": "0:37:24",
     "restarts": {
       "totalCount": 3,
@@ -34,11 +34,61 @@
     "cpu": 35,
     "status": "on",
     "instances": 4,
-    "memory": 6,
+    "memory": 4,
     "upTime": "0:02:16",
     "restarts": {
       "totalCount": 0,
       "history": []
+    }
+  },
+  {
+    "isActive": false,
+    "process": 4,
+    "cpu": 49,
+    "status": "on",
+    "instances": 6,
+    "memory": 8,
+    "upTime": "11:37:24",
+    "restarts": {
+      "totalCount": 2,
+      "history": [
+        "20 jan 2016 12:34:23",
+        "20 jan 2016 12:31:11"
+      ]
+    }
+  },
+  {
+    "isActive": false,
+    "process": 5,
+    "cpu": 83,
+    "status": "on",
+    "instances": 2,
+    "memory": 6,
+    "upTime": "20:33:44",
+    "restarts": {
+      "totalCount": 5,
+      "history": [
+        "12 feb 2016 10:24:23",
+        "12 feb 2016 10:22:05",
+        "12 feb 2016 10:22:05",
+        "12 feb 2016 10:22:05",
+        "12 feb 2016 10:21:11"
+      ]
+    }
+  },
+  {
+    "isActive": false,
+    "process": 6,
+    "cpu": 21,
+    "status": "on",
+    "instances": 4,
+    "memory": 2,
+    "upTime": "10:20:41",
+    "restarts": {
+      "totalCount": 0,
+      "history": [
+        
+      ]
     }
   }
 ]

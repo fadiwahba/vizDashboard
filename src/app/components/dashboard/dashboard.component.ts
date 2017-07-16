@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { trigger, state, style, transition, animate, keyframes } from "@angular/animations";
+import { trigger, state, style, transition, animate } from "@angular/animations";
 import { PodService } from "../../services/pod.service";
 import { Pod } from "../../pod";
 
@@ -12,15 +12,15 @@ export class DashboardComponent implements OnInit {
 
   defaultPod: Pod;
   pods: Pod[] = [];
-  warningMessage: string;
-  showWarningMessage: boolean;
-
+  errorMessage: string;
+  showErrorMessage: boolean;
 
   constructor(private podService: PodService) {
 
     // initialize a warning message
-    this.warningMessage = 'No more pods available!'
-    this.showWarningMessage = false;
+    this.errorMessage = 'No more pods available!'
+    this.showErrorMessage = false;
+
   }
 
   ngOnInit() {
@@ -28,9 +28,10 @@ export class DashboardComponent implements OnInit {
     this.podService.getPods().subscribe(pods => {
       // console.log(pods);
       this.pods = pods;
+
       // activate at least one pod by default
-      this.defaultPod = this.pods[0];
-      this.defaultPod.isActive = true;
+      // this.defaultPod = this.pods[0];
+      // this.defaultPod.isActive = true;
     });
   }
 
@@ -39,18 +40,20 @@ export class DashboardComponent implements OnInit {
       // console.log('i: ', i)
       if (this.pods[i].isActive == false) {
         this.pods[i].isActive = true;
+        // this.togglePod = true;
         break;
       }
       if (i == this.pods.length - 1) {
-        this.showWarningMessage = true;
+        this.showErrorMessage = true;
       }
     }
   }
 
   removePod(index: number): void {
     this.pods[index].isActive = false;
-    if (this.showWarningMessage) {
-      this.showWarningMessage = false;
+
+    if (this.showErrorMessage) {
+      this.showErrorMessage = false;
     }
   }
 
