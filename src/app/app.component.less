@@ -1,0 +1,42 @@
+@import "../assets/css/colors";
+@import "../assets/css/mixins";
+
+.main-wrapper {
+  background-color: @white;
+  margin: 4em;
+  .border-radius(10px);
+}
+
+.header {
+  background-color: @white;
+  padding: 1em;
+  overflow: hidden;
+
+  .logo {
+    float: left;
+  }
+
+  .main-title {
+    float: right;
+    color: @main-title;
+    
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 10px;
+    }
+  }
+}
+
+.main-content {
+  background-color: @main-content-bg;
+  min-height: 400px;
+
+  .dashboard-content {
+    padding: 1em;
+  }
+}
+
+.footer {
+  padding: 1em;
+}

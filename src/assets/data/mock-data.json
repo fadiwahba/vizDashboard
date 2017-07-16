@@ -1,0 +1,44 @@
+[{
+    "isActive": false,
+    "process": 1,
+    "cpu": 73,
+    "status": "on",
+    "instances": 4,
+    "memory": 6,
+    "upTime": "3:24:51",
+    "restarts": {
+      "totalCount": 0,
+      "history": []
+    }
+  },
+  {
+    "isActive": false,
+    "process": 2,
+    "cpu": 29,
+    "status": "on",
+    "instances": 4,
+    "memory": 6,
+    "upTime": "0:37:24",
+    "restarts": {
+      "totalCount": 3,
+      "history": [
+        "22 jan 2016 12:34:23",
+        "22 jan 2016 12:32:05",
+        "22 jan 2016 12:31:11"
+      ]
+    }
+  },
+  {
+    "isActive": false,
+    "process": 3,
+    "cpu": 35,
+    "status": "on",
+    "instances": 4,
+    "memory": 6,
+    "upTime": "0:02:16",
+    "restarts": {
+      "totalCount": 0,
+      "history": []
+    }
+  }
+]

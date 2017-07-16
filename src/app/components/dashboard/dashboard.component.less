@@ -1,0 +1,155 @@
+@import "../../../assets/css/colors";
+@import "../../../assets/css/mixins";
+
+.flex-container {
+  display: -webkit-flex;
+  display: flex;
+}
+
+.pod {
+  background-color: @pod-bg-gray;
+  width: 100%;
+  height: 200px;
+  .border-radius(5px);
+
+  .pod-title {
+    color: @pod-title-gray;
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .pod-value {
+    color: @gray;
+    font-size: 32px;
+    font-weight: bold;
+  }
+
+  .pod-header {
+    background: @pod-header-gradient;
+    color: @white;
+    border-radius: 5px 5px 0 0;
+    width: 100%;
+    height: 35px;
+
+    .pod-header-title{
+      width: 95%;
+      padding: 5px 10px;
+
+      .pod-title {
+        color: @light-blue;
+        font-size: 10px;
+        font-weight: normal;
+      }
+
+      .pod-value {
+        color: @white;
+        font-size: 10px;
+        font-weight: normal;
+      }
+    }
+    
+    .close-icon {
+      padding: 5px 10px;
+      .close {
+        color: @gray;
+        text-shadow: none;
+        // font-size: 2em;
+      }
+    }
+  }
+
+  // .pod-cpu
+  .pod-cpu {
+    background: @pod-header-gray;
+    width: 100%;
+    height: 100px;
+
+    .pod-cpu-left {
+      width: 20%;
+      text-align: center;
+      padding: 8px;
+      background: @pod-cpu-gradient;
+    }
+
+    .pod-cpu-right {
+      width: 80%;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  // .pod-cpu
+
+  // .pod-confg-wrapper
+  .pod-confg-wrapper {
+    background: @pod-panel-gray;
+    width: 100%;
+    height: 100px;
+
+    .pod-confg {
+      width: 16.66%;
+      height: 100%;
+      text-align: center;
+      padding: 8px;
+    }
+
+    .has-border {
+      border-right: 1px solid @white;
+    }
+    
+    .pod-confg-status {
+      .pod-value {
+        color: @green;
+      }
+    }
+
+    .pod-confg-memory {
+      .pod-value {
+        border-radius: 50%;
+        border: 5px solid #fff;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        font-size: 26px;
+        display: inline-block;
+      }
+    }
+    
+    .pod-confg-uptime {
+      width: 33%;
+      
+      .pod-value {
+        color: @orange;
+        font-family: digital, sans-serif;
+      }
+    }
+
+    .pod-confg-restart {
+      a#dropdownMenu1 {
+      
+      }
+    }
+
+
+  }
+  // .pod-confg-wrapper
+  
+} // /.pod
+
+
+.dropdown-menu.dropdown-menu-right {
+  background: @pod-header-gray;
+  color: @gray;
+  border-radius: 0;
+  border: 1px solid #999;
+  padding: 0;
+  margin: 0;
+  right: -10px;
+
+  li {
+    padding: 5px 10px;
+    border-bottom: 1px solid #999;
+  }
+}
