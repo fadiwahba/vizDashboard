@@ -21,7 +21,7 @@
         <div *ngIf="pods.length > 0" class="pod-repeater flex-container">
           <div *ngFor="let pod of pods; let i = index;" class="pod-{{i}} pod-wrapper">
             <div *ngIf="pod.isActive == true">
-              <div class="pod">
+              <div class="pod" [@podState]="pod.isActive">
                 <div class="pod-header flex-container">
                   <div class="pod-header-title">
                     <span class="pod-title">Process</span> <span class="pod-value">{{pod.process}}</span>

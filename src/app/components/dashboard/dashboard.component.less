@@ -1,5 +1,24 @@
-@import "../../../assets/css/colors";
-@import "../../../assets/css/mixins";
+// mixins
+.border-radius(@radius) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+@pod-bg-gray: #E6E6E6;
+@pod-header-gray: #373d47;
+@pod-header-gradient: linear-gradient(0deg,#2c3039,#434b56);
+@pod-cpu-gradient: linear-gradient(90deg,#2c3039,#434b56);
+@pod-panel-gray: #EDEDED;
+@pod-title-gray: #b3b3b3;
+
+@white: #FFFFFF;
+@green: #96c93d;
+@blue: #0775cc;
+@light-blue: #29abe2;
+@orange: #f6921e;
+@gray: #636f7e;
+@red: #ec1940;
 
 .flex-container {
   display: -webkit-flex;
@@ -142,6 +161,9 @@
   
 } // /.pod
 
+#dropdownMenu1 {
+  cursor: pointer;
+}
 
 .dropdown-menu.dropdown-menu-right {
   background: @pod-header-gray;

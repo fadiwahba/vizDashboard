@@ -6,7 +6,27 @@ import { Pod } from "../../pod";
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.less']
+  styleUrls: ['./dashboard.component.less'],
+  animations: [
+    trigger('podState', [
+      state('false', style({
+
+      })),
+      state('true', style({
+
+      })),
+      transition('* => *', [
+        style({
+          transform: 'scale(1.2)',
+          // opacity: 0
+        }),
+        animate('600ms ease-in-out', style({
+          transform: 'scale(1)',
+          // opacity: 1 // 
+        }))
+      ])
+    ])
+  ]
 })
 export class DashboardComponent implements OnInit {
 
@@ -26,7 +46,6 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     // fetch mock data
     this.podService.getPods().subscribe(pods => {
-      // console.log(pods);
       this.pods = pods;
 
       // activate at least one pod by default
@@ -37,10 +56,8 @@ export class DashboardComponent implements OnInit {
 
   addPod(event): void {
     for (var i = 0; i < this.pods.length; i++) {
-      // console.log('i: ', i)
       if (this.pods[i].isActive == false) {
         this.pods[i].isActive = true;
-        // this.togglePod = true;
         break;
       }
       if (i == this.pods.length - 1) {
